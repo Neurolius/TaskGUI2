@@ -11,6 +11,14 @@ namespace TaskGUI2
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string text = textBox1.Text ?? "0";
+            int inputText = int.Parse(text);
+            var result = Logic.ConvertToMoney(inputText);
+            Result.Text = result;  
+        }
     }
 
     public class Logic
