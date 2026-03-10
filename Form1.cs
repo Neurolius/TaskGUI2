@@ -5,6 +5,7 @@ namespace TaskGUI2
         public Form1()
         {
             InitializeComponent();
+            textBox1.Text = Properties.Settings.Default.InputText.ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -14,8 +15,13 @@ namespace TaskGUI2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             string text = textBox1.Text ?? "0";
             int inputText = int.Parse(text);
+
+            Properties.Settings.Default.InputText = text;
+            Properties.Settings.Default.Save();
+
             var result = Logic.ConvertToMoney(inputText);
             Result.Text = result;  
         }
